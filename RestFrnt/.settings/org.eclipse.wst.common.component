@@ -4,6 +4,6 @@
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/com.emp"/>
         <property name="java-output-path" value="/RestFrnt/build/classes"/>
-        <property name="context-root" value="RestFrnt"/>
+        <property name="context-root" value="hierarchy"/>
     </wb-module>
 </project-modules>
