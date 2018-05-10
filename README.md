@@ -15,7 +15,7 @@ One service is able to save objects to db, and second return it list of object f
 Front app have few pages like form for insert new employees into db, result of this action, and finally 
 representations of employee table in list form. 
 
-Front look are made whery simple. I skipped to made more complex in interest of time. As it would require for 
+Front look are made very simple. I skipped to made more complex in interest of time. As it would require for 
 me to go on line and research it. If needed I can research, would made like e.g PrimeFaces and implement it. 
 
 
