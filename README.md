@@ -9,7 +9,7 @@ jbizic@yahoo.com
 	This project is made of two aplication, like server app and client app. 
 Back application have peristance, also is able to make and serve Mysql driven database named Employees, 
 with single table employee. For persistance I use Hibernate API with annotations on POJO classis.
-Back app have two RESTful service which is job is to take requests from client app and operate.
+Back app have two RESTful service which job is to take requests from client app and operate.
 One service is able to save objects to db, and second return it list of object from db in JSON form.
 
 Front app have few pages like form for insert new employees into db, result of this action, and finally 
