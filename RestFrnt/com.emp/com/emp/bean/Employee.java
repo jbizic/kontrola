@@ -2,6 +2,7 @@ package com.emp.bean;
 
 import java.io.Serializable;
 
+
 /**
  * @author Jovan
  *
@@ -17,14 +18,16 @@ public class Employee implements Serializable  {
 	private String name;
 	private String jobDescription;
 	private Double monthSalary;
+	private long parentId;
 	
 	public Employee() {
 	}
-	public Employee(long id, String name, String jobDescription, double salary) {
+	public Employee(long id, String name, String jobDescription, double salary, long parentId) {
 		this.setId(id);
 		this.setName(name);
 		this.setJobDescription(jobDescription);
 		this.setMonthSalary(salary);
+		this.setParentId(parentId);
 	}
 
 	public Long getId() {
@@ -57,6 +60,12 @@ public class Employee implements Serializable  {
 
 	public void setMonthSalary(Double monthSalary) {
 		this.monthSalary = monthSalary;
+	}
+	public long getParentId() {
+		return parentId;
+	}
+	public void setParentId(long parentId) {
+		this.parentId = parentId;
 	}
 	
 }

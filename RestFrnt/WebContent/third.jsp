@@ -13,10 +13,11 @@
 <table>
   <c:forEach items="${RestClient.getEmp()}" var="emp">
   <tr>
-      <td><c:out value="${emp.id}" /></td>
-      <td><c:out value="${emp.name}" /></td>
-      <td><c:out value="${emp.jobDescription}" /></td>
-      <td><c:out value="${emp.monthSalary}" /></td>
+      <td><c:out value="${emp.id}" /></td><td><c:out value="  " /></td>
+      <td><c:out value="${emp.name}" /></td><td><c:out value="  " /></td>
+      <td><c:out value="${emp.jobDescription}" /></td><td><c:out value="  " /></td>
+      <td><c:out value="${emp.monthSalary}" /></td><td><c:out value=" - " /></td>
+      <td><c:out value="${emp.parentId}" /></td>
     </tr>
   </c:forEach>
 </table>

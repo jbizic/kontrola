@@ -24,7 +24,8 @@ public class MyResource {
 
 	@POST
 	public Response save(@FormParam("name") String name, @FormParam("jobDescription") String jd,
-			@FormParam("monthSalary") String ms) throws URISyntaxException {
+			@FormParam("monthSalary") String ms, @FormParam("parent") String parent) throws URISyntaxException {
+		Employee parentEmp = EmployeeDAO.getEmpByName(parent);
 		if (name.equals(null)) {
 			return Response.noContent().build();
 		} else {
@@ -32,6 +33,7 @@ public class MyResource {
 			em.setName(name);
 			em.setJobDescription(jd);
 			em.setMonthSalary(Double.parseDouble(ms));
+			em.setParentId(parentEmp.getId());
 			if (EmployeeDAO.saveUser(em)) {
 				URI location = new URI("http://localhost:8080/hierarchy/second.jsp");
 				return Response.temporaryRedirect(location).build();
