@@ -3,6 +3,7 @@ package org.RestBack.hibernate;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
 import org.RestBack.bean.Employee;
@@ -50,7 +51,12 @@ public class EmployeeDAO {
 			   Session session = HibernateUtil.getSessionFactory().openSession();
 			   Query query = session.createQuery("from Employee e where e.name = :name");
 			   query.setParameter("name", name);
-			   Employee e = (Employee) query.getSingleResult();
+			   Employee e = null;
+			  try {
+			  e = (Employee) query.getSingleResult();
+			  }catch(NoResultException ex) {
+				  
+			  }
 			  return e;
 		  }
 		  

@@ -33,7 +33,7 @@ public class MyResource {
 			em.setName(name);
 			em.setJobDescription(jd);
 			em.setMonthSalary(Double.parseDouble(ms));
-			em.setParentId(parentEmp.getId());
+			em.setParentId(parentEmp != null ? parentEmp.getId() : null);
 			if (EmployeeDAO.saveUser(em)) {
 				URI location = new URI("http://localhost:8080/hierarchy/second.jsp");
 				return Response.temporaryRedirect(location).build();
