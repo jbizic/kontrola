@@ -1,18 +1,18 @@
 
 // Get JSON data
-var json = (function() {
-    var json = null;
-    $.ajax({
-        'async': false,
-        'global': false,
-        'url': 'http://localhost:8080/RestBack/webapi/myresource/getEmp',
-        'dataType': "json",
-        'success': function (data) {
-            json = data;
-        }
-    });
-    return json;
-})();
+//var json = (function() {
+//    var json = null;
+//    $.ajax({
+//        'async': false,
+//        'global': false,
+//        'url': 'http://localhost:8080/RestBack/webapi/myresource/getEmp',
+//        'dataType': "json",
+//        'success': function (data) {
+//            json = data;
+//        }
+//    });
+//    return json;
+//})();
 
 treeJSON = d3.json("http://localhost:8080/RestBack/webapi/myresource/getEmp", function(error, json) {
 	var treeData = JSON.stringify(json);

@@ -56,7 +56,7 @@
 		<script src="dndTree.js"></script> 
 </head>
 <body>
-...
+<%-- ...
 <table>
   <c:forEach items="${RestClient.getAllEmp()}" var="emp">
   <tr>
@@ -69,7 +69,7 @@
   </c:forEach>
 </table>
 ...
-<br><br/>
+<br><br/> --%>
 <form action="http://localhost:8080/hierarchy/index.jsp">
 <input type="submit" value="Back"/>
 </form>
