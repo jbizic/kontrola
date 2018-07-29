@@ -44,4 +44,29 @@ public class RestClient {
 
 		return eList;
 	}
+	
+	public static List<Employee> getAllEmp() {
+		CLIENT = HttpClients.createDefault();
+		HttpGet request = new HttpGet("http://localhost:8080/RestBack/webapi/myresource/getAllEmp");
+		request.addHeader("content-type", "application/json;charset=UTF-8");
+		request.addHeader("charset", "UTF-8");
+		HttpResponse response;
+
+		try {
+
+			response = (HttpResponse) CLIENT.execute(request);
+			HttpEntity entity = response.getEntity();
+			ObjectMapper mapper = new ObjectMapper();
+			mapper.configure(DeserializationFeature.USE_JAVA_ARRAY_FOR_JSON_ARRAY, true);
+			Employee[] model = mapper.readValue((EntityUtils.toString(entity)), Employee[].class);
+			eList = new ArrayList<>();
+			for (Employee item : model) {
+				eList.add(item);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		return eList;
+	}
 }

@@ -61,7 +61,7 @@ public class EmployeeDAO {
 		  }
 		  
 		  @SuppressWarnings("unchecked")
-		public static List<Employee> getUsers() {
+		public static List<Employee> getAllUsers() {
 		   Session session = HibernateUtil.getSessionFactory().openSession();
 		   session.beginTransaction();
 
@@ -78,4 +78,38 @@ public class EmployeeDAO {
 		   session.getTransaction().commit();
 		   return list;
 		  }
+			@SuppressWarnings("unchecked")
+			public static List<Employee> getChildren(long id) {
+				Session session = HibernateUtil.getSessionFactory().openSession();
+				session.beginTransaction();
+
+				ArrayList<Employee> list = (ArrayList<Employee>) session.createQuery("from Employee e WHERE e.parentId = "+id+" ")
+						.list();
+
+				session.getTransaction().commit();
+				return list;
+			}
+			public static void addChildren(Employee em) {
+				if(!em.getChildren().isEmpty()) {
+					for(Employee e : em.getChildren()) {
+						e.setChildren(getChildren(e.getId()));
+						addChildren(e);
+					}
+				}
+			}
+			@SuppressWarnings("unchecked")
+			public static List<Employee> getUsers() {
+				Session session = HibernateUtil.getSessionFactory().openSession();
+				session.beginTransaction();
+				ArrayList<Employee> list = new ArrayList<>();;
+				Employee root =  (Employee) session.createQuery("from Employee e WHERE e.parentId is null").getSingleResult();
+				root.setChildren(getChildren(root.getId()));
+
+				if(!root.getChildren().isEmpty()) {
+						addChildren(root);
+				}
+				list.add(root);
+				session.getTransaction().commit();
+				return list;
+			}
 }

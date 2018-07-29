@@ -4,6 +4,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.HashMap;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -42,12 +43,26 @@ public class MyResource {
 			}
 		}
 	}
-
 	@GET
+	@Path("/getAllEmp")
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("/getEmp")
+	@Consumes(MediaType.APPLICATION_JSON)
 	public Response getAllEployees() {
 		HashMap<String, Object> json = null;
+		try {
+			return Response.ok().entity(EmployeeDAO.getAllUsers()).build();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return Response.ok().entity(json).build();
+		}
+	}
+
+	@GET
+	@Path("/getEmp")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response getEployees() {
+		HashMap<String, String> json = null;
 		try {
 			return Response.ok().entity(EmployeeDAO.getUsers()).build();
 		} catch (Exception e) {

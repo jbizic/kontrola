@@ -17,7 +17,7 @@
 		<br /> Month salary:<br /> <input type="text" name="monthSalary" /><br>
 		<br /> Parent node:<br /><select name ="parent">
 			<option selected value="SELECT">SELECT</option>
-			<c:forEach items="${RestClient.getEmp()}" var="emp">
+			<c:forEach items="${RestClient.getAllEmp()}" var="emp">
 				<option>${emp.name}</option>
 			</c:forEach>
 

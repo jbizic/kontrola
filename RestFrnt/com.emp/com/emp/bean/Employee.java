@@ -2,32 +2,43 @@ package com.emp.bean;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.util.*;
 
 /**
  * @author Jovan
  *
  */
-
+@Entity
 public class Employee implements Serializable  {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
+	@Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
+	@Column(unique = true)
 	private String name;
 	private String jobDescription;
 	private Double monthSalary;
-	private long parentId;
+	private Long parentId;
+	private List<Employee>children;
 	
 	public Employee() {
+		this.children = new ArrayList<Employee>();
 	}
-	public Employee(long id, String name, String jobDescription, double salary, long parentId) {
+	public Employee(long id, String name, String jobDescription, double salary, long parentId, List<Employee>children) {
 		this.setId(id);
 		this.setName(name);
 		this.setJobDescription(jobDescription);
 		this.setMonthSalary(salary);
 		this.setParentId(parentId);
+		this.children = new ArrayList<Employee>();
 	}
 
 	public Long getId() {
@@ -61,11 +72,17 @@ public class Employee implements Serializable  {
 	public void setMonthSalary(Double monthSalary) {
 		this.monthSalary = monthSalary;
 	}
-	public long getParentId() {
+	public Long getParentId() {
 		return parentId;
 	}
-	public void setParentId(long parentId) {
+	public void setParentId(Long parentId) {
 		this.parentId = parentId;
+	}
+	public List<Employee> getChildren() {
+		return children;
+	}
+	public void setChildren(List<Employee> children) {
+		this.children = children;
 	}
 	
 }
