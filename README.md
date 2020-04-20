@@ -1,12 +1,12 @@
 # kontrola
 
-Jovan Bizic
-Admirala geprata 11
-11000 Beograd
-jbizic@yahoo.com
-+381 65 3088833
+	Jovan Bizic |
+	Admirala geprata 11 |
+	11000 Beograd |
+	jbizic@yahoo.com |
+	+381 65 3088833
 
-	This project is made of two aplication, like server app and client app. 
+This project is made of two aplication, like server app and client app. 
 Back application have peristance, also is able to make and serve Mysql driven database named Employees, 
 with single table employee. For persistance I use Hibernate API with annotations on POJO classis.
 Back app have two RESTful service which job is to take requests from client app and operate.
