@@ -1,9 +1,9 @@
 # kontrola
 
-	Jovan Bizic |
-	Admirala geprata 11 |
-	11000 Beograd |
-	jbizic@yahoo.com |
+	Jovan Bizic 
+	Admirala geprata 11 
+	11000 Beograd 
+	jbizic@yahoo.com 
 	+381 65 3088833
 
 This project is made of two aplication, like server app and client app. 
